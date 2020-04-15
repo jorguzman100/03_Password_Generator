@@ -77,8 +77,40 @@ function generatePassword() {
         "Z",
       ];
       const numCharArray = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
-      //const specC = [!, ", #, $, %, &, \', (, ), *, +, ,, -, ., /, :, ;, <, =, >, ?, @, [, \, ], ^, _, `, {, |, }, ~,];
-      const specCharArray = ["SS", "SS", "SS", "SS", "SS"];
+      const specCharArray = [
+        "!",
+        '"',
+        "#",
+        "$",
+        "%",
+        "&",
+        "'",
+        "(",
+        ")",
+        "*",
+        "+",
+        ",",
+        "-",
+        ".",
+        "/",
+        ":",
+        ";",
+        "<",
+        "=",
+        ">",
+        "?",
+        "@",
+        "[",
+        "\\",
+        "]",
+        "^",
+        "_",
+        "`",
+        "{",
+        "|",
+        "}",
+        "~",
+      ];
       let pwd = "";
 
       // Generate the password
@@ -86,25 +118,35 @@ function generatePassword() {
         // Random select lower case / upper case / numeric / special
         let rdmType = Math.floor(Math.random() * 4);
 
+        // Random lower case character
         if (rdmType === 0 && lcConfirm) {
           console.log(`rdmType: ${rdmType} = lc`);
           let rdmLC =
             lcCharArray[Math.floor(Math.random() * lcCharArray.length)];
           console.log(`rdmLC: ${rdmLC}`);
           pwd = pwd + rdmLC;
-        } else if (rdmType === 1 && ucConfirm) {
+        }
+
+        // Random upper case character
+        else if (rdmType === 1 && ucConfirm) {
           console.log(`rdmType: ${rdmType} = uc`);
           let rdmUC =
             ucCharArray[Math.floor(Math.random() * ucCharArray.length)];
           console.log(`rdmUC: ${rdmUC}`);
           pwd = pwd + rdmUC;
-        } else if (rdmType === 2 && numConfirm) {
+        }
+
+        // Random number character
+        else if (rdmType === 2 && numConfirm) {
           console.log(`rdmType: ${rdmType} = num`);
           let rdmNumC =
             numCharArray[Math.floor(Math.random() * numCharArray.length)];
           console.log(`rdmNumC: ${rdmNumC}`);
           pwd = pwd + rdmNumC;
-        } else if (rdmType === 3 && specConfirm) {
+        }
+
+        // Random special character
+        else if (rdmType === 3 && specConfirm) {
           console.log(`rdmType: ${rdmType} = spec`);
           let rdmSpecC =
             specCharArray[Math.floor(Math.random() * specCharArray.length)];
@@ -112,6 +154,8 @@ function generatePassword() {
           pwd = pwd + rdmSpecC;
         }
       }
+
+      // Return the final password generated
       console.log(`pwd: ${pwd}`);
       console.log(`pwd length: ${pwd.length}`);
       return pwd;
