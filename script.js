@@ -160,11 +160,11 @@ function generatePassword() {
       console.log(`pwd length: ${pwd.length}`);
       return pwd;
     } else {
-      alert("Please select at least one character type");
+      alert("Please select at least one character type.");
       generatePassword();
     }
   } else {
-    alert("Please select a length number beetween 8 and 128 characters");
+    alert("Please select a length number beetween 8 and 128 characters.");
     generatePassword();
   }
 }
